@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Regolamento Fantacalcio AmmioCuggino 2025/26</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900;200&display=swap');
+
+        :root {
+            --campo-verde: #208e3d;
+            --linee-bianche: #ffffff;
+            --bordo-nero: #1a1a1a;
+            --sfondo-scuro: #163a23;
+            --testo-chiaro: #f0f8ff;
+            --testo-scuro: #000000;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: var(--sfondo-scuro);
+            color: var(--testo-chiaro);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            background-color: var(--sfondo-scuro);
+        }
+
+        .header {
+            background-color: var(--campo-verde);
+            padding: 40px 20px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--linee-bianche);
+            background-image: url('https://imgur.com/92qkMPy.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--linee-bianche);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: clamp(1.8em, 5vw, 2.8em);
+            color: var(--linee-bianche);
+            margin: 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .article-card {
+            background-color: var(--campo-verde);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 2px solid var(--linee-bianche);
+            background-image: url('https://imgur.com/92qkMPy.png');
+            background-size: cover;
+            background-position: center;
+            padding-bottom: 60px; /* Spazio per il pulsante copia */
+        }
+
+        .article-card h4 {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--linee-bianche);
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-card h4 .article-icon {
+            font-size: 2em;
+            line-height: 1;
+        }
+
+        .article-logo {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            object-fit: cover;
+            opacity: 0.15;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .article-card p, .article-card ul, .article-card ol, .article-card table {
+            margin-top: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em;
+            color: var(--testo-chiaro);
+            position: relative;
+            z-index: 1;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid var(--linee-bianche);
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--linee-bianche);
+            font-weight: bold;
+        }
+
+        .header.index-style {
+            padding: 20px;
+        }
+
+        .header.index-style h3 {
+            text-align: center;
+            color: var(--linee-bianche);
+            margin-top: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+        }
+
+        .header.index-style ul {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .header.index-style ul li a {
+            display: block;
+            background-color: rgba(0,0,0,0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--testo-chiaro);
+            transition: background-color 0.2s ease-in-out;
+            border-left: 4px solid var(--linee-bianche);
+        }
+
+        .header.index-style ul li a:hover {
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        .back-to-index {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--linee-bianche);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-to-index:hover {
+            color: #d1ffb3;
+        }
+        
+        /* Stili per il nuovo pulsante di copia */
+        .copy-container {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.2s, transform 0.1s;
+            color: var(--testo-chiaro);
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-msg {
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, bottom 0.3s;
+            white-space: nowrap;
+        }
+
+        .copy-msg.show {
+            opacity: 1;
+            bottom: 130%;
+        }
+
+        @media screen and (min-width: 600px) {
+            .header.index-style ul {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media screen and (min-width: 900px) {
+            .header.index-style ul {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <div class="header-content">
+            <img src="https://i.imgur.com/dBLyFUI.png" alt="Logo Fantacalcio" class="header-logo">
+            <div>
+                <h1>🏆 REGOLAMENTO FANTACALCIO AMMIOCUGGINO 2025/26 🏆</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="header index-style" id="index">
+        <h3>Indice Regolamento 📜</h3>
+        <ul>
+            <li><a href="#art1">⚽ Art. 1 - La Lega Fantammiocuggino</a></li>
+            <li><a href="#art2">📱 Art. 2 - App Ufficiale</a></li>
+            <li><a href="#art3">📐 Art. 3 - Moduli e Sostituzioni</a></li>
+            <li><a href="#art4">👥 Art. 4 - Composizione della Rosa</a></li>
+            <li><a href="#art5">⚡ Art. 5 - Soglia Gol</a></li>
+            <li><a href="#art6">🔢 Art. 6 - Bonus e Malus</a></li>
+            <li><a href="#art7">🛡️ Art. 7 - Modificatore di Difesa</a></li>
+            <li><a href="#art8">📝 Art. 8 - Voto d'Ufficio</a></li>
+            <li><a href="#art9">🔨 Art. 9 - Asta Iniziale</a></li>
+            <li><a href="#art10">💰 Art. 10 - Crediti a Disposizione</a></li>
+            <li><a href="#art11">⚖️ Art. 11 - Fine Asta e Sforamenti</a></li>
+            <li><a href="#art12">🔁 Art. 12 - Asta di Riparazione</a></li>
+            <li><a href="#art13">📋 Art. 13 - Mercato Libero e Scambi</a></li>
+            <li><a href="#art14">✈️ Art. 14 - Indennizzo per Cessioni</a></li>
+            <li><a href="#art15">📅 Art. 15 - Scadenze di Consegna</a></li>
+            <li><a href="#art16">💬 Art. 16 - Formazione via WhatsApp</a></li>
+            <li><a href="#art17">🚫 Art. 17 - Mancata Consegna</a></li>
+            <li><a href="#art18">📉 Art. 18 - Penalità</a></li>
+            <li><a href="#art19">⏱️ Art. 19 - Gestione Rinvii</a></li>
+            <li><a href="#art20">⚠️ Art. 20 - Supercoppa Italiana</a></li>
+            <li><a href="#art21">⏸️ Art. 21 - Partite Sospese</a></li>
+            <li><a href="#art22">🖊️ Art. 22 - Reclami e Rettifiche</a></li>
+            <li><a href="#art23">📜 Art. 23 - Casi non Contemplati</a></li>
+            <li><a href="#art24">🏆 Art. 24 - Le 4 Competizioni</a></li>
+            <li><a href="#art25">⚽ Art. 25 - Calendario Serie A</a></li>
+            <li><a href="#art26">🥇 Art. 26 - Coppa Italia</a></li>
+            <li><a href="#art27">⭐️ Art. 27 - Champions e Europa League</a></li>
+            <li><a href="#art28">📊 Art. 28 - Punti Classifica</a></li>
+            <li><a href="#art29">🔎 Art. 29 - Criteri in Caso di Parità</a></li>
+            <li><a href="#art30">👑 Art. 30 - Campione di Lega</a></li>
+            <li><a href="#art31">💰 Art. 31 - Quote di Partecipazione</a></li>
+            <li><a href="#art32">💶 Art. 32 - Cauzione</a></li>
+            <li><a href="#art33">🎁 Art. 33 - Distribuzione Premi</a></li>
+            <li><a href="#art34">📜 Art. 34 - Obbligo di Partecipazione</a></li>
+        </ul>
+    </div>
+
+    <div class="article-card" id="art1">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">⚽</span> Art. 1 - La Lega Fantammiocuggino</h4>
+        <p>La Lega Fantammiocuggino è una simulazione del gioco del calcio attraverso la formazione di fantasquadre, la loro gestione e lo schieramento in campo in occasione delle giornate del Campionato di Calcio di Serie A.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art1" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art2">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">📱</span> Art. 2 - App Ufficiale</h4>
+        <p>La Lega si dota di un'applicazione LEGHE FANTACALCIO realizzata da fantacalcio.it scaricabile su smartphone da App Store o Play Store. Tramite l'app sarà possibile gestire la propria fantasquadra e consultare tutte le informazioni della lega. Sarà inoltre possibile eseguire le sessioni di mercato a buste e scambi.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art2" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art3">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">📐</span> Art. 3 - Moduli e Sostituzioni</h4>
+        <p>I moduli consentiti sono: 3-5-2, 3-4-3, 4-5-1, 4-4-2, 4-3-3, 5-3-2, 5-4-1. Oltre agli 11 titolari si potranno schierare in panchina tutti i giocatori che sono presenti nella rosa. Il numero massimo di sostituzioni sarà comunque 5 per ogni partita. Nel caso in cui un giocatore non prenda voto e neanche i suoi sostituti in panchina, questo prenderà voto “zero”.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art3" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art4">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">👥</span> Art. 4 - Composizione della Rosa</h4>
+        <p>La rosa di ciascuna squadra comprende 25 giocatori, di cui 3 portieri, 8 difensori, 8 centrocampisti e 6 attaccanti</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art4" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art5">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">⚡</span> Art. 5 - Soglia Gol</h4>
+        <p>Per tutte le competizioni la soglia gol parte da 66 punti che corrispondono a 1 gol. I successivi gol si ottengono ogni 6 punti. Esempio: 66 = 1 GOL, 72 = 2 GOL e così via.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art5" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art6">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">🔢</span> Art. 6 - Bonus e Malus</h4>
+        <p>Il punteggio che ottiene ogni calciatore è pari al voto in pagella che gli viene assegnato dalla "Redazione" del sito di Fantacalcio.it, maggiorato o ridotto dei bonus e malus così determinati:</p>
+        <table><thead><tr><th>Evento</th><th>Bonus/Malus</th></tr></thead><tbody><tr><td>Gol segnato</td><td>+3</td></tr><tr><td>Gol subito</td><td>-1</td></tr><tr><td>Rigore segnato</td><td>+3</td></tr><tr><td>Rigore sbagliato</td><td>-3</td></tr><tr><td>Rigore parato</td><td>+3</td></tr><tr><td>Ammonizione</td><td>-0.5</td></tr><tr><td>Espulsione</td><td>-1</td></tr><tr><td>Autogol</td><td>-2</td></tr><tr><td>Assist</td><td>+1</td></tr><tr><td>Porta inviolata</td><td>+1</td></tr></tbody></table>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art6" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art7">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">🛡️</span> Art. 7 - Modificatore di Difesa</h4>
+        <p>Sarà possibile ricevere punti aggiuntivi tramite il MODIFICATORE DI DIFESA. Si applica schierando almeno 4 difensori. Il calcolo avviene sul voto (senza bonus/malus) e si effettua solo sui migliori 3 a voto. Il modificatore non si applica se nel calcolo non ci sono in campo almeno 4 voti validi di difensori (più il voto del portiere). Se a seguito delle sostituzioni (con cambio modulo) lo schieramento risultante presenta solo 3 difensori, il modificatore non si applica. I 6 politici saranno considerati come voti validi. Non saranno invece validi eventuali riserve d'ufficio subentrate in difesa.</p>
+        <table><thead><tr><th>Media Voto</th><th>Bonus/Malus</th></tr></thead><tbody><tr><td>&lt;6</td><td>0</td></tr><tr><td>Da 6 a 6,49</td><td>1</td></tr><tr><td>Da 6,5 a 6,99</td><td>3</td></tr><tr><td>Da 7 a 7,49</td><td>4</td></tr><tr><td>>&nbsp;7,5</td><td>5</td></tr></tbody></table>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art7" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art8">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">📝</span> Art. 8 - Voto d'Ufficio</h4>
+        <p>Al giocatore valutato s.v., e ammonito, verrà attribuito un voto d'ufficio di 5,5.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art8" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art9">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">🔨</span> Art. 9 - Asta Iniziale</h4>
+        <p>L'asta iniziale si svolgerà in modalità tradizionale a chiamata. A turno, ogni partecipante nominerà un calciatore libero sul mercato, e gli allenatori interessati faranno la loro offerta d'asta. Il rilancio minimo consentito è di 1 credito. Nessun partecipante può inserirsi nell'asta per un calciatore che non può permettersi di acquistare. Ogni chiamata si svolgerà in modalità random: saranno conteggiati 3 secondi dopo ogni rilancio, alla fine dei quali, in assenza di ulteriori rilanci, la chiamata verrà dichiarata chiusa e il giocatore sarà assegnato alla squadra che ha presentato l'offerta più alta. I giocatori saranno chiamati per ruolo seguendo il seguente ordine: PORTIERI, DIFENSORI, CENTROCAMPISTI e ATTACCANTI. Tale procedura viene ripetuta finché tutti gli allenatori non hanno completato la propria rosa secondo le regole di composizione.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art9" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art10">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">💰</span> Art. 10 - Crediti a Disposizione</h4>
+        <p>Ciascuna squadra avrà a disposizione inizialmente 600 crediti.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art10" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art11">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">⚖️</span> Art. 11 - Fine Asta e Sforamenti</h4>
+        <p>Nessun partecipante che abbia completato la sua rosa nei termini massimi può partecipare all'asta per un ulteriore calciatore. Una volta raggiunto il numero massimo di giocatori tesserabili, la sua asta è conclusa. I giocatori acquistati grazie allo sforamento del budget, ritornano sul mercato e sono acquistabili dagli altri partecipanti.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art11" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art12">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">🔁</span> Art. 12 - Asta di Riparazione</h4>
+        <p>L'ASTA DI RIPARAZIONE si svolgerà subito dopo la chiusura del mercato di riparazione che è prevista alle ore 20:00 del 02 Febbraio 2026 necessariamente in un giorno tra il 02, 03, 04 o 05 Febbraio con le stesse modalità dell'asta Estiva (Art. 9). Saranno possibili gli scambi. Il giorno sarà scelto a votazione in base alla maggioranza dei voti. Chi non potrà partecipare all'asta potrà sostituire i giocatori il giorno dopo scegliendo tra gli svincolati. Si potranno svincolare 5 giocatori e devono essere comunicati entro il giorno prima dell'asta agli amministratori. Per ogni giocatore svincolato si riceverà un indennizzo pari alla quotazione del giocatore in quel momento.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art12" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art13">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">📋</span> Art. 13 - Mercato Libero e Scambi</h4>
+        <p>Durante il campionato verranno tenute delle sessioni di mercato libero con modalità a buste chiuse tramite app. La prima sessione si svolgerà dall'10 al 13 ottobre 2025. La seconda si svolgerà dal 27 al 30 marzo 2026. Ogni squadra potrà effettuare un massimo di 5 movimenti per ogni sessione di mercato. La base d'asta è pari alla valutazione del giocatore per cui si presenta l'offerta, secondo le liste di riferimento della Lega, aggiornate al giorno di mercato. Anche durante le sessioni di mercato libero saranno possibili gli scambi tramite app (massimo 3). Saranno aperte delle sezioni di mercato a scambi durante le pause nazionali e pausa natalizia.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art13" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art14">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">✈️</span> Art. 14 - Indennizzo per Cessioni</h4>
+        <p>Nel caso in cui un calciatore appartenente ad una fantasquadra venga ceduto all'estero o in una serie inferiore o subisca un infortunio da "STAGIONE FINITA", e conseguentemente escluso dalle liste, verrà escluso anche dalla rosa di appartenenza e la fantasquadra che detiene il suo contratto riceverà un indennizzo per tale esclusione. Tale indennizzo è pari al 50% dei crediti spesi al momento dell'acquisto del giocatore, arrotondati per eccesso. È possibile incamerare l'indennizzo dal momento in cui la cessione del giocatore venga annunciata da canali di informazione ufficiali, come il sito internet della società o della Lega Calcio. Per ogni giocatore si riceverà uno slot aggiuntivo nella successiva sessione di mercato.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art14" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art15">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">📅</span> Art. 15 - Scadenze di Consegna</h4>
+        <p>La formazione dovrà essere presentata entro e non oltre 1 minuto prima dell'inizio della prima partita valida per il turno di campionato. Le formazioni andranno inserite sull'apposita app di Leghe Fantacalcio.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art15" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art16">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">💬</span> Art. 16 - Formazione via WhatsApp</h4>
+        <p>Se dovessero esserci problemi di server con l'applicazione fantacalcio o altre valide motivazioni, è possibile comunicare la formazione, in via eccezionale, solo tramite il gruppo WhatsApp "FANTAMMIOCUGGINO" entro un minuto dell'inizio della prima partita di giornata.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art16" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art17">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">🚫</span> Art. 17 - Mancata Consegna</h4>
+        <p>Nel caso di non comunicazione della formazione, fa testo l'ultima formazione valida comunicata. In assenza di una formazione valida da recuperare, il segretario di Lega assegnerà alla squadra in questione un punteggio totale d'ufficio, equivalente a 60 punti.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art17" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art18">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">📉</span> Art. 18 - Penalità</h4>
+        <p>In caso di mancata consegna della propria formazione sono previste le seguenti penalità:</p>
+        <ul><li>La formazione risulterà invisibile per tutta la giornata;</li><li>Dopo 3 formazioni non messe penalità di -6 punti nel conteggio (o un gol) da scontare nella stessa giornata;</li><li>Dopo 3 formazioni non messe ci sarà anche una sanzione di 1 euro per ogni formazione.</li></ul>
+        <p style="font-size: 0.8em; color: var(--testo-chiaro);">Le penalità incrementeranno la vincita di COPPA.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art18" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art19">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">⏱️</span> Art. 19 - Gestione Rinvii</h4>
+        <p>In caso di rinvio partita per maltempo o altro tipo di imprevisti in data da destinarsi o comunque dopo la giornata successiva di serie A si procederà con il 6 politico per i giocatori interessati.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art19" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art20">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">⚠️</span> Art. 20 - Supercoppa Italiana</h4>
+        <p>L'articolo 19 non si applicherà ai giocatori delle squadre (Inter, Napoli, Bologna e Milan) interessate nelle fasi finali della Supercoppa Italiana che si svolgerà in concomitanza della sedicesima giornata di campionato.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art20" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art21">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">⏸️</span> Art. 21 - Partite Sospese</h4>
+        <p>Nel caso in cui una partita sia sospesa e non recuperata entro l'inizio della giornata successiva si aspetterà il recupero della stessa.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art21" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art22">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">🖊️</span> Art. 22 - Reclami e Rettifiche</h4>
+        <p>Nel caso in cui la redazione di Fantacalcio.it rettifichi, in una successiva edizione, un voto assegnato a un calciatore, si potrà presentare reclamo, entro 24 ore dalla rettifica, al segretario di Lega che, una volta constatata la fondatezza del reclamo, dovrà annullare il risultato della partita e ricalcolarlo in base alle rettifiche dei voti.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art22" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art23">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">📜</span> Art. 23 - Casi non Contemplati</h4>
+        <p>Durante un campionato possono verificarsi numerosi contrattempi, e non tutti contemplati dal regolamento. Per tutti questi casi particolari, le decisioni prese dal sito web www.fantacalcio.it sono le sole valevoli ufficialmente ai fini del gioco.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art23" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art24">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">🏆</span> Art. 24 - Le 4 Competizioni</h4>
+        <p>Sono previste 4 competizioni: SERIE A, COPPA ITALIA, CHAMPIONS LEAGUE E EUROPA LEAGUE.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art24" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art25">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">⚽</span> Art. 25 - Calendario Serie A</h4>
+        <p>Il fantacampionato SERIE A si svolge di pari passo con il campionato di calcio di Serie A. La PRIMA giornata corrisponderà con la TERZA giornata di Serie A. L'ultima, invece, coinciderà con la penultima giornata di campionato di Serie A (giornata 37). Il fantacampionato seguirà un calendario all'italiana. Ogni squadra affronterà tutte le altre 7 squadre una volta nel corso di un girone. I gironi sono ripetuti per cinque volte, per un totale di 36 partite.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art25" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art26">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">🥇</span> Art. 26 - Coppa Italia</h4>
+        <p>La COPPA ITALIA avrà inizio alla quinta giornata di Serie A (28 settembre) e terminerà con la finale alla giornata 34 di Serie A. Sarà composta inizialmente da 2 gironi da 4 squadre ciascuno. Si qualificano alle fasi finali le prime 2 di ogni girone. Tutte le partite prevedono il doppio scontro andata e ritorno. I sorteggi dei gironi e delle fasi finali saranno estratti in modo casuale e automatico dal sistema.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art26" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art27">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">⭐️</span> Art. 27 - Champions e Europa League</h4>
+        <p>La CHAMPIONS LEAGUE avrà inizio alla quarta giornata di Serie A (21 settembre) e andra di pari passo con la UEFA Champions League. La competizione rispecchierà l'attuale format. Infatti ci sarà inizialmente un unico girone da 8 squadre che si affronteranno tra di loro in una partita di sola andata. Al termine del girone le prime 4 passeranno alla fase eliminatoria, mentre le altre 4 saranno eliminate dalla Champions e si qualificheranno alle fasi finali di Europa League. Le fasi finali delle 2 competizioni si svolgeranno in contemporanea e avranno le stesse modalità: semifinali e finali andata e ritorno. Semifinali giornata 30 e 32, finali 34 e 36.</p>
+        <p>In tutte le coppe in caso di parità in classifica durante la fase a gironi saranno utilizzati gli stessi criteri adottati per il campionato (art. 29). Per le fasi finali i criteri saranno:</p>
+        <ol><li>Supplementari e rigori;</li><li>Somma punti;</li><li>Ex criterio UEFA gol trasferta.</li></ol>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art27" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art28">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">📊</span> Art. 28 - Punti Classifica</h4>
+        <p>Ad ogni squadra partecipante verranno assegnati i seguenti punti in base al risultato della partita: vittoria 3 punti, pareggio 1 punto, sconfitta 0 punti.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art28" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art29">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">🔎</span> Art. 29 - Criteri in Caso di Parità</h4>
+        <p>In caso di parità di punteggio in classifica, il vincitore viene stabilito secondo i seguenti criteri, in ordine:</p>
+        <ol><li>Punti totali ottenuti negli scontri diretti</li><li>Differenza reti negli scontri diretti</li><li>Gol totali segnati negli scontri diretti</li><li>Differenza reti totale nel torneo</li><li>Gol totali segnati nel torneo</li></ol>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art29" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art30">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">👑</span> Art. 30 - Campione di Lega</h4>
+        <p>Il vincitore del fantacampionato SERIE A si aggiudica la prima competizione di Lega: il trofeo FANTAMMIOCUGGINO.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art30" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art31">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">💰</span> Art. 31 - Quote di Partecipazione</h4>
+        <p>Per la partecipazione a tutte le competizioni è previsto il versamento di una quota di 25 euro per ogni partecipante da versare entro il 15 settembre 2025.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art31" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art32">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">💶</span> Art. 32 - Cauzione</h4>
+        <p>Al momento del versamento della quota di iscrizione, i partecipanti verseranno una cauzione pari a 10 euro, che sarà restituita al termine del campionato, al netto di eventuali sanzioni subite durante il corso della stagione.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art32" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art33">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">🎁</span> Art. 33 - Distribuzione Premi</h4>
+        <p>La distribuzione dei premi in denaro avverrà solo ed esclusivamente in presenza di un bilancio in attivo a fine stagione. Tale bilancio si compone delle quote di iscrizione dei partecipanti e delle eventuali sanzioni subite dagli stessi. Il premio verrà distribuito nel seguente modo:</p>
+        <ul><li><strong>Campione di Lega:</strong> 60% della vincita</li><li><strong>Coppa Italia:</strong> 25% della vincita</li><li><strong>Champions League:</strong> 10% della vincita</li><li><strong>Europa League:</strong> 5% della vincita</li></ul>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art33" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+    <div class="article-card" id="art34">
+        <h4><img src="https://i.imgur.com/dBLyFUI.png" alt="Logo piccolo" class="article-logo"> <span class="article-icon">📜</span> Art. 34 - Obbligo di Partecipazione</h4>
+        <p>Ogni partecipante è obbligato a schierare una formazione per ogni singola giornata di campionato fino al termine dello stesso. Chiunque non rispetterà tale obbligo verrà escluso dalla Lega nel campionato successivo.</p>
+        <div class="copy-container"><button class="copy-btn" data-article-id="art34" title="Copia negli appunti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/></svg></button><span class="copy-msg">Copiato!</span></div><a href="#index" class="back-to-index">↑ Torna all'indice</a>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const copyButtons = document.querySelectorAll('.copy-btn');
+
+    copyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const articleId = button.dataset.articleId;
+            const article = document.getElementById(articleId);
+            if (!article) return;
+
+            const title = article.querySelector('h4');
+            const contents = article.querySelectorAll('p, ul, ol, table');
+            
+            let textToCopy = '';
+            if (title) {
+                const titleClone = title.cloneNode(true);
+                const icon = titleClone.querySelector('.article-icon');
+                const logo = titleClone.querySelector('.article-logo');
+                if (icon) icon.remove();
+                if (logo) logo.remove();
+                textToCopy += titleClone.innerText.trim() + '\n\n';
+            }
+            contents.forEach(content => {
+                textToCopy += content.innerText.trim() + '\n\n';
+            });
+
+            // Use execCommand as a fallback for broader compatibility
+            try {
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy.trim();
+                textArea.style.position = 'fixed';
+                textArea.style.top = '-9999px';
+                textArea.style.left = '-9999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                const msg = button.nextElementSibling;
+                if (msg && msg.classList.contains('copy-msg')) {
+                    msg.classList.add('show');
+                    setTimeout(() => msg.classList.remove('show'), 2000);
+                }
+            } catch (err) {
+                console.error('Fallback: Errore nella copia del testo: ', err);
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
+
